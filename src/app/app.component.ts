@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { ZoomMtg } from '@zoomus/websdk';
 
-ZoomMtg.setZoomJSLib('https://source.zoom.us/2.8.0/lib', '/av');
+ZoomMtg.setZoomJSLib('https://source.zoom.us/2.9.0/lib', '/av');
 
 ZoomMtg.preLoadWasm();
 ZoomMtg.prepareWebSDK();
