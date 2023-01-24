@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { ZoomMtg } from '@zoomus/websdk';
 
-ZoomMtg.setZoomJSLib('https://source.zoom.us/2.9.5/lib', '/av');
+ZoomMtg.setZoomJSLib('https://source.zoom.us/2.9.7/lib', '/av');
 
 ZoomMtg.preLoadWasm();
 ZoomMtg.prepareWebSDK();
@@ -21,7 +21,7 @@ ZoomMtg.i18n.reload('en-US');
 export class AppComponent implements OnInit {
 
   // setup your signature endpoint here: https://github.com/zoom/meetingsdk-sample-signature-node.js
-  signatureEndpoint = 'https://meetingsdk-sample-signature.herokuapp.com'
+  signatureEndpoint = 'https://26040c9x85.execute-api.us-west-1.amazonaws.com/default/meetingsdk'
   // This Sample App has been updated to use SDK App type credentials https://marketplace.zoom.us/docs/guides/build/sdk-app
   sdkKey = ''
   meetingNumber = ''
@@ -48,10 +48,10 @@ export class AppComponent implements OnInit {
   }
 
   getSignature() {
-    this.httpClient.post(this.signatureEndpoint, {
+    this.httpClient.post(this.signatureEndpoint, JSON.stringify({
 	    meetingNumber: this.meetingNumber,
 	    role: this.role
-    }).toPromise().then((data: any) => {
+    })).toPromise().then((data: any) => {
       if(data.signature) {
         this.startMeeting(data.signature)
       } else {
