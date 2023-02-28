@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { ZoomMtg } from '@zoomus/websdk';
 
-ZoomMtg.setZoomJSLib('https://source.zoom.us/2.9.7/lib', '/av');
+ZoomMtg.setZoomJSLib('https://source.zoom.us/2.10.0/lib', '/av');
 
 ZoomMtg.preLoadWasm();
 ZoomMtg.prepareWebSDK();
@@ -34,6 +34,7 @@ export class AppComponent implements OnInit {
   // Meetings: https://marketplace.zoom.us/docs/sdk/native-sdks/web/client-view/meetings#join-registered
   // Webinars: https://marketplace.zoom.us/docs/sdk/native-sdks/web/client-view/webinars#join-registered
   registrantToken = ''
+  zakToken = ''
 
   constructor(public httpClient: HttpClient, @Inject(DOCUMENT) document, private activatedRoute: ActivatedRoute) {
     this.activatedRoute.queryParams.subscribe(params => {
@@ -78,6 +79,7 @@ export class AppComponent implements OnInit {
           userEmail: this.userEmail,
           passWord: this.passWord,
           tk: this.registrantToken,
+          zak: this.zakToken,
           success: (success) => {
             console.log(success)
           },
