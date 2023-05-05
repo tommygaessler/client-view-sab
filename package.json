@@ -1,6 +1,6 @@
 {
   "name": "meetingsdk-sample-angular",
-  "version": "2.11.0",
+  "version": "2.12.0",
   "author": "Tommy Gaessler",
   "scripts": {
     "ng": "ng",
