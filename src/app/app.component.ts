@@ -60,6 +60,7 @@ export class AppComponent implements OnInit {
       ZoomMtg.init({
         leaveUrl: this.leaveUrl,
         patchJsMedia: true,
+        leaveOnPageUnload: true,
         success: (success) => {
           console.log(success)
           ZoomMtg.join({
